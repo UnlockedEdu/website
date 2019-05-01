@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% load replace %}
+
+{% block main %}
+
+<h1>Multiple Choice Questions</h1>
+{% for mcq in multiple_choice_questions %}
+{% autoescape off %}
+<code>{{ mcq.question | linebreaks | replace_spaces }}</code>
+<ol>
+{% for ans in mcq.answer_choices %}
+	<li>{{ ans | linebreaks | replace_spaces}}</li>
+{% endfor %}
+</ol>
+{% endautoescape %}
+
+<h5>Answer(s): {% for ans in mcq.answers %} {{ ans }}, {% endfor %} </h5>
+<h5>Tag(s): {% for ans in mcq.tags %} {{ ans }}, {% endfor %} </h5>
+<h5>Subject: {{ mcq.subject }}</h5>
+<hr>
+{% endfor %}
+
+{% endblock main %}

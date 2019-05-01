@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% load replace %}
+
+{% block main %}
+
+<h1>Free Response Questions</h1>
+{% for frq in free_response_questions %}
+{% autoescape off %}
+<code>{{ frq.question | replace_spaces | linebreaks}}</code>
+{% endautoescape %}
+
+<h5>Answer: {{ frq.answer }} </h5>
+<h5>Tag(s): {% for ans in frq.tags %} {{ ans }}, {% endfor %} </h5>
+<h5>Subject: {{ frq.subject }}</h5>
+<hr>
+{% endfor %}
+
+
+{% endblock main %}
