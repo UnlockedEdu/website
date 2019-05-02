@@ -1,7 +1,50 @@
 {% extends "base.html" %}
 
-{% block content %}
-<div class="container">
-<h1>About</h1>
-</div>
-{% endblock content %}
+{% block main %}
+
+    <header class="page-heading clearfix">
+        <h1 class="heading-title float-left">About</h1>
+    </header> 
+    <div class="page-content">
+        <div class="row page-row">
+            <article class="welcome col-lg-8 col-md-7 col-12">                         
+                <h3 class="title">Welcome to UnlockedEdu</h3>
+                <p> UnlockedEdu is an Open Source project dedicated providing educational resources to educators, free of charge. 
+                    At this time we plan on providing Open Sourced Education Resources (OER) for Computer Science Courses to start 
+                    (it's what the developers know best). We hope to expand this platform to support all courses and subjects. 
+                    The first course we will target will be the AP Computer Science A class, taught at public high schools in the 
+                    United States and Canada. However, we hope that these materials will be sufficient for teaching Computer Science 
+                    around the world.</p>
+
+                <br>
+                <h3 class="title">Features</h3>
+                <p>The UnlockedEdu platform aims to provide the following resources for all educators, parents, students, and hobbiests 
+                all over the world.</p>
+                <ul class="custom-list-style">
+                    <li><i class="fas fa-book"></i>Textbooks</li>
+                    <li><i class="fas fa-theater-masks"></i>Scripts</li>
+                    <li><i class="fas fa-chalkboard-teacher"></i>Curricula</li>
+                    <li><i class="fas fa-cogs"></i>Worksheet Generators </li>
+                    <li><i class="fas fa-project-diagram"></i>Projects</li>
+                    <li><i class="fas fa-plus-square"></i>and hopefully more!</li>
+                </ul>
+
+                <br>
+                <h3 class="title">What is Open Source?</h3>
+                <p>
+                A common practice in software engineering is for a person to build a tool and give it away for free. A community then 
+                develops around this tool and before you know it you have many people all contributing to the same thing, not for money 
+                and personal gain, but to bring something about to better the world. All material here will  be open sourced so that anyone 
+                can contribute and help make the world a better place.</p>
+            </article><!--//page-content-->
+                <aside>
+                <section class="widget">
+                    <h3 class="title">Contact</h3>
+                    <p>For all enquires, contact Mason Egger</p>
+                    <p class="email"><i class="fas fa-envelope"></i>Email: <a href="#">mason@masonegger.com</a></p>
+                </section><!--//widget--> 
+            </aside>
+        </div><!--//page-row-->
+    </div><!--//page-content-->
+{% endblock main %}
+

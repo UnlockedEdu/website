@@ -1,7 +1,45 @@
 {% extends "base.html" %}
+{% load static %}
 
-{% block content %}
-<div class="container">
-<h1>Index</h1>
-</div>
-{% endblock content %}
+{% block main %}        
+        <!-- ******CONTENT****** --> 
+        <div class="content container">
+            <div id="promo-slider" class="slider flexslider">
+                <ul class="slides">
+                    <li>
+                        <img src="{% static "assets/images/ue2.jpg" %}"  alt="" />
+                        <p class="flex-caption">
+                            <span class="main" >Version 0.2 Released!</span>
+                            <br />
+                            <span class="secondary clearfix" >Homepage and begging of user functionality added!</span>
+                        </p>
+                    </li>
+                    <li>
+                        <img src="{% static "assets/images/ue2.jpg" %}"  alt="" />
+                        <p class="flex-caption">
+                            <span class="main" >Join us at PyCon! May 1 - May 9</span>
+                            <br />
+                            <span class="secondary clearfix" >Attend the Education Summit Mini Sprint or stay after for Developer Sprints!</span>
+                        </p>
+                    </li>
+                    <li>
+                        <img src="{% static "assets/images/ue-discord.jpg" %}"  alt="" />
+                        <p class="flex-caption">
+                            <span class="main" >Want to chat with us? Join our discord server!</span>
+                            <br />
+                            <span class="secondary clearfix" ><a href="https://discord.gg/CdfVkGw">Click here to join!</span>
+                        </p>
+                    </li>
+                </ul><!--//slides-->
+            </div><!--//flexslider-->
+            <section class="promo box box-dark">     
+	            <div class="row">  
+	                <div class="col-lg-9 col-12">
+	                <h1 class="section-heading">Why UnlockedEdu?</h1>
+	                    <p>UnlockedEdu aims to remove the pay wall guarding education by providing quality resources
+                        that teachers, students, and anyone else can access for free.</p>   
+	                </div>  
+	            </div><!--//row-->
+            </section><!--//promo-->
+    </div>
+{% endblock main %} 

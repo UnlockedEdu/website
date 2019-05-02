@@ -25,9 +25,18 @@ class MCAnswer(models.Model):
 
 
 class Question(models.Model):
+    difficulty_levels = [
+        ("beginner", "Beginner"),
+        ("easy", "Easy"),
+        ("normal", "Normal"),
+        ("hard", "Hard"),
+        ("mastery", "Mastery"),
+    ]
     text = models.TextField()
     subject = models.ForeignKey("Subject", on_delete=models.PROTECT)
     tags = models.ManyToManyField("Tag")
+    rating = models.CharField(max_length=8, choices=difficulty_levels,
+        default="beginner")
 
     class Meta:
         abstract = True

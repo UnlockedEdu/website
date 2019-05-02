@@ -52,7 +52,7 @@
 
                 </div>
                 <div class="logo col-md-6 col-sm-6 text-center">
-                    <img class="logo-img" id="logo" src="{% static "assets/images/ue2.png" %}" alt="Orchestra Logo" usemap="#logo_map">
+                    <img class="logo-img" id="logo" src="{% static "assets/images/ue2.png" %}" alt="UnlockedEdu" usemap="#logo_map">
                 </div><!--//logo-->
                 <div class="info col-md-3 col-sm-3 hidden-xs">
                     <br />
@@ -80,7 +80,7 @@
 	                        <li class="nav-item dropdown">
 	                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Books <i class="fas fa-angle-down"></i></a>
 	                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-	                                <a class="dropdown-item" href="courses.html">Course List</a>
+	                                <a class="dropdown-item" href="https://unlockededu.github.io/macbeth-one-act-play/">Macbeth One Act Play (In Progress)</a>
 	                            </div><!--//dropdown-menu-->
 	                        </li>
 	                        <li class="nav-item dropdown">
@@ -103,6 +103,9 @@
                                 {% endif %}
                                 <i class="fa fa-angle-down"></i></a>
 	                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    {% if user.is_active and user.is_staff %}
+                                    <a class="dropdown-item" href="{% url "admin:index" %}">Content Manager</a>
+                                    {% endif %}
 	                                <a class="dropdown-item" href="{% url "account_logout" %}?next={{ request.path }}">Logout</a>
 								</div><!--//dropdown-menu-->
 							</li>
@@ -134,7 +137,7 @@
                 <div class="row">
                 <div class="footer-col col-lg-3 col-md-4 col-12 about">
                     <div class="footer-col-inner">
-                        <h3>Policies</h3>
+                        <h4>Policies</h4>
                         <ul>
                             <li><a href="{% url "privacy" %}"><i class="fas fa-caret-right"></i>Privacy Policy</a></li>
                             <li><a href="{% url "terms-and-conditions" %}"><i class="fas fa-caret-right"></i>Terms & Conditions</a></li>
