@@ -1,0 +1,170 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>UnlockedEdu</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">    
+    <link rel="shortcut icon" href="favicon.ico">  
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>   
+    <!-- FontAwesome JS-->
+    <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="{% static "assets/plugins/bootstrap/css/bootstrap.min.css" %}">   
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="{% static "assets/plugins/flexslider/flexslider.css" %}">
+    <!-- Theme CSS -->  
+    <link id="theme-style" rel="stylesheet" href="{% static "assets/css/theme.css" %}">
+
+	{% block head %}
+	{% endblock head %}
+</head> 
+
+<body class="home-page">
+    <div class="wrapper">
+        <!-- ******HEADER****** --> 
+        <header class="header">  
+            <div class="top-bar">
+                <div class="container">     
+	                <div class="row">   
+	                    <ul class="social-icons col-md-6 col-12 d-none d-md-block">
+	                        <li><a href="https://www.github.com/unlockededu" ><i class="fab fa-github"></i></a></li>
+	                    </ul><!--//social-icons-->
+						<!--
+	                    <form class="col-md-6 col-12 search-form" role="search">
+	                        <div class="form-group">
+	                            <input type="text" class="form-control" placeholder="Search the site...">
+	                        </div>
+	                        <button type="submit" class="btn btn-theme">Go</button>
+	                    </form>    -->
+	                </div><!--//row-->     
+                </div>      
+            </div><!--//to-bar-->
+            <div class="header-main container">
+			  <div class="row">
+                <div class="info col-md-3 col-sm-3 hidden-xs">
+                    <div class="contact navbar left">
+                    </div><!--//contact-->
+
+                </div>
+                <div class="logo col-md-6 col-sm-6 text-center">
+                    <img class="logo-img" id="logo" src="{% static "assets/images/ue2.png" %}" alt="UnlockedEdu" usemap="#logo_map">
+                </div><!--//logo-->
+                <div class="info col-md-3 col-sm-3 hidden-xs">
+                    <br />
+                </div><!--//info-->
+	          </div><!-- row -->
+            </div><!--//header-main-->
+        </header><!--//header-->
+        
+        <!-- ******NAV****** -->
+        <div class="main-nav-wrapper">
+            <div class="container">
+	            <nav class="main-nav navbar navbar-expand-md" role="navigation">    
+	                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar-collapse">
+	                    <span class="sr-only">Toggle navigation</span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                </button><!--//nav-toggle-->
+	                          
+	                <div class="navbar-collapse collapse" id="navbar-collapse">
+	                    <ul class="nav navbar-nav">
+	                        <li class="nav-item"><a class="nav-link" href="{% url "index" %}">Home</a></li>
+	                        <li class="nav-item"><a class="nav-link" href="{% url "about" %}">About</a></li>
+
+	                        <li class="nav-item dropdown">
+	                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Books <i class="fas fa-angle-down"></i></a>
+	                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+	                                <a class="dropdown-item" href="https://unlockededu.github.io/macbeth-one-act-play/">Macbeth One Act Play (In Progress)</a>
+	                            </div><!--//dropdown-menu-->
+	                        </li>
+	                        <li class="nav-item dropdown">
+	                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Worksheets <i class="fas fa-angle-down"></i></a>
+	                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+	                                <a class="dropdown-item" href="{% url "worksheets:free-response" %}">Free Response Questions</a>
+	                                <a class="dropdown-item" href="{% url "worksheets:multiple-choice" %}">Multiple Choice Questions</a>
+	                            </div><!--//dropdown-menu-->
+	                        </li>
+	                    </ul>
+					<!--//nav-->
+                        <ul class="nav navbar-nav hidden-sm ml-auto">
+                            {% if user.is_authenticated %}
+                            <li class="nav-item dropdown">
+   	                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {% if user.first_name %}
+                                    Welcome {{ user.first_name }}
+                                {% else %}
+                                    Welcome {{ user.username }}
+                                {% endif %}
+                                <i class="fa fa-angle-down"></i></a>
+	                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    {% if user.is_active and user.is_staff %}
+                                    <a class="dropdown-item" href="{% url "admin:index" %}">Content Manager</a>
+                                    {% endif %}
+	                                <a class="dropdown-item" href="{% url "account_logout" %}?next={{ request.path }}">Logout</a>
+								</div><!--//dropdown-menu-->
+							</li>
+		                    {% else %}
+	                        <li class="nav-item"><a class="nav-link" href="{% url "account_login" %}?next={{ request.path }}">Login</a></li>
+                            </li>
+        		               {% endif %}
+                    </ul>
+	                </div><!--//navabr-collapse-->
+	            
+		        </nav><!--//main-nav-->
+	        </div><!--//container-->
+        </div><!--//main-nav-container-->
+        
+        <!-- ******CONTENT****** -->
+{% block content %} 
+<div class="content container">
+    <div class="page-wrapper">
+                {% block main %}
+                {% endblock main %}
+    </div>
+</div>
+{% endblock content %}
+</div><!-- wrapper -->
+    <!-- ******FOOTER****** --> 
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="container">
+                <div class="row">
+                <div class="footer-col col-lg-3 col-md-4 col-12 about">
+                    <div class="footer-col-inner">
+                        <h4>Policies</h4>
+                        <ul>
+                            <li><a href="{% url "privacy" %}"><i class="fas fa-caret-right"></i>Privacy Policy</a></li>
+                            <li><a href="{% url "terms-and-conditions" %}"><i class="fas fa-caret-right"></i>Terms & Conditions</a></li>
+                        </ul>
+                    </div><!--//footer-col-inner-->
+                </div><!--//foooter-col-->
+                </div>   
+            </div>        
+        </div><!--//footer-content-->
+        <div class="bottom-bar">
+            <div class="container">
+                <div class="row">
+                    <small class="copyright col-lg-8 col-12">All educational material on this site is licensed with the  <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License. </a></small>
+                </div><!--//row-->
+            </div><!--//container-->
+        </div><!--//bottom-bar-->
+    </footer><!--//footer-->
+    
+    <!-- Javascript -->          
+    <script type="text/javascript" src="{% static "assets/plugins/jquery-3.3.1.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "assets/plugins/popper.min.js" %}"></script> 
+    <script type="text/javascript" src="{% static "assets/plugins/bootstrap/js/bootstrap.min.js" %}"></script> 
+    <script type="text/javascript" src="{% static "assets/plugins/back-to-top.js" %}"></script>
+    <script type="text/javascript" src="{% static "assets/plugins/flexslider/jquery.flexslider-min.js" %}"></script>
+    <script type="text/javascript" src="{% static "assets/plugins/jflickrfeed/jflickrfeed.min.js" %}"></script> 
+    <script type="text/javascript" src="{% static "assets/js/main.js" %}"></script>     
+           
+</body>
+</html> 
+

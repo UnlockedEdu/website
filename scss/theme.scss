@@ -1,0 +1,43 @@
+/*!   
+ * Template Name: College Green - Bootstrap 4 Template for Education
+ * Version: 4.0
+ * Author: Xiaoying Riley
+ * Copyright: 3rd Wave Media Ltd.
+ * Website: http://themes.3rdwavemedia.com/
+ * Twitter: @3rdwave_themes
+*/
+
+/*************************** Theme Colours****************************/
+// Define theme colour scheme
+$color: #6091ba;
+$text-color: #444;
+$grey: #999;
+$darker-grey: #666;
+$smoky-white: #f5f5f5;
+$divider: #e8e8e8;
+$red: #E14B39;
+$green: #7FA82C;
+$orange: #F09B46;
+$blue: #6091BA;
+
+$theme-default: #6091ba;
+$theme-green: #57a89a;
+$theme-purple: #6f7a9f;
+$theme-red: #a85770;
+
+
+/*************************** Theme Styles ****************************/
+// Import theme styles
+@import "theme/mixins";
+@import "theme/base";
+@import "theme/home";
+@import "theme/courses";
+@import "theme/events";
+@import "theme/contact";
+@import "theme/responsive";
+
+
+
+
+
+
